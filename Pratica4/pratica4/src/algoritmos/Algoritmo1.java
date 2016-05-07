@@ -1,6 +1,8 @@
 package algoritmos;
 
 
+import arquivos.GravaArquivo;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,11 +16,13 @@ import java.util.Scanner;
  * @author wesley
  */
 public class Algoritmo1 {
-
-    public static void main(String[] args) {
+    static int contador = 0;
+    
+    public static void main(String[] args) throws IOException {
         Random random = new Random();
-
-        int n = 0, contador = 0;
+        GravaArquivo grava = new GravaArquivo();
+        
+        int n = 0;
 
         Scanner entrada = new Scanner(System.in);
         while (n < 5) {
@@ -29,12 +33,17 @@ public class Algoritmo1 {
         }
         int vetor[] = new int[n];
 
-        receveVetor(n, vetor, random);
-        calculaMedia(vetor, contador);
+        recebeVetor(n, vetor, random);
+        calculaMedia(vetor);
+        
+        //salva o tamanho do vetor e a quantidade operações em arquivo de texto
+        String path = "algoritmo1";
+        
+        grava.escritor(path, n, contador);
 
     }
 
-    private static int[] receveVetor(int n, int[] vetor, Random random) {
+    private static int[] recebeVetor(int n, int[] vetor, Random random) {
         for (int i = 0; i < n; i++) {
             vetor[i] = random.nextInt(100);
             System.out.print(vetor[i]+" " );
@@ -44,7 +53,7 @@ public class Algoritmo1 {
         return vetor;
     }
 
-    private static void calculaMedia(int[] vetor, int contador) {
+    private static void calculaMedia(int[] vetor) {
         int media = 0;
         for (int i = 0; i < 5; i++) {
             media += vetor[i];
