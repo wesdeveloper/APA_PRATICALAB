@@ -6,6 +6,7 @@
 package ordena;
 
 import tipos.Bubble;
+import tipos.HeapSort;
 import tipos.Insection;
 import tipos.QuickSort;
 import tipos.Selection;
@@ -24,6 +25,7 @@ public class Start {
         Insection insection = new Insection();
         Selection selection = new Selection();
         QuickSort quickSort = new QuickSort();
+        HeapSort heapSort = new HeapSort();
         
         int n = start.getN();
         
@@ -36,8 +38,8 @@ public class Start {
 //        bolha.organizaVetor(ordena.getVet());
 //        insection.organizaVetor(ordena.getVet());
 //        selection.organizaVetor(ordena.getVet());
-        quickSort.organizaVetor(ordena.getVet());
-        
+//        quickSort.organizaVetor(ordena.getVet());
+         heapSort.organizaVetor(ordena.getVet());
         //imprime novamente o vetor organizado
         ordena.imprime();
     }
