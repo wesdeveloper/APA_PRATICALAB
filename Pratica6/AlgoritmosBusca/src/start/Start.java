@@ -6,6 +6,7 @@
 package start;
 
 import buscas.Binaria;
+import buscas.SSentinela;
 import buscas.Sequencial;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ import java.util.Scanner;
  * @author wesley
  */
 public class Start {
-    private static int n = 10;
+    private static int n = 100;
     public static void main(String[] args) {
         Vetor vetor = new Vetor();
         Scanner entrada = new Scanner(System.in);
@@ -41,6 +42,8 @@ public class Start {
                 sequencial.busca(vetor.getVet(), e);
                 break;
             case 2:
+                SSentinela sentinela = new SSentinela();
+                sentinela.busca(vetor.getVet(), e);
                 break;
             case 3:
                 Binaria binaria = new Binaria();

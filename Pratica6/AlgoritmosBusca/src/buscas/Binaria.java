@@ -5,23 +5,27 @@
  */
 package buscas;
 
+import java.util.Arrays;
+
 /**
  *
  * @author wesley
  */
 public class Binaria implements ITBusca {
+
     private static int retorno = 0;
+
     @Override
     public void busca(int[] v, int e) {
-        
+        Arrays.sort(v);
         retorno = Busca_Binaria(v, e);
-        
-        if(retorno == -1){
+
+        if (retorno == -1) {
             System.out.println("Elemento não encontrado no vetor.");
-        } else{
+        } else {
             System.out.println("Elemento encontrado na posição: " + retorno + " do vetor.");
         }
-        
+
     }
 
     public static int Busca_Binaria(int v[], int e) {

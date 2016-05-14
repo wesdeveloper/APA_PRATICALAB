@@ -12,7 +12,7 @@ import java.util.Random;
  * @author wesley
  */
 public class Vetor implements IVetor {
-
+    private Random random = new Random();
     private int vet[];
     private int n;
 
@@ -20,7 +20,7 @@ public class Vetor implements IVetor {
     public void inicializaVetor(int n) {
         this.vet = new int[n];
         for (int i = 0; i < n; i++) {
-            vet[i] = i+3;
+            vet[i] = random.nextInt(100);
         }
     }
 
