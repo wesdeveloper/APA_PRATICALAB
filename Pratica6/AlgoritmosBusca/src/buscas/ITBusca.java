@@ -9,6 +9,6 @@ package buscas;
  *
  * @author wesley
  */
-public class Sequencial {
-    
+public interface ITBusca {
+    public void busca(int v[], int e);
 }

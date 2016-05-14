@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ordena;
+package start;
 
 /**
  *
  * @author wesley
  */
-public interface IOrdena {
-   public void inicializaVetor(int n);
+public interface IVetor {
+    public void inicializaVetor(int n);
    public void imprime();
 }
