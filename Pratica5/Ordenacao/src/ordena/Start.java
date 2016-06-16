@@ -5,6 +5,7 @@
  */
 package ordena;
 
+import java.util.Scanner;
 import tipos.Bubble;
 import tipos.HeapSort;
 import tipos.Insection;
@@ -16,30 +17,50 @@ import tipos.Selection;
  * @author wesley
  */
 public class Start {
+
     private int n = 10;
-    
+
     public static void main(String[] args) {
         Start start = new Start();
         Ordena ordena = new Ordena();
-        Bubble bolha  = new Bubble();
-        Insection insection = new Insection();
-        Selection selection = new Selection();
-        QuickSort quickSort = new QuickSort();
-        HeapSort heapSort = new HeapSort();
-        
+
+        int tbusca = 0;
         int n = start.getN();
-        
+        Scanner entrada = new Scanner(System.in);
+
+        System.out.println("BubbleSort = 1, SelectionSort = 2, InserctionSort = 3, QuickSort = 4, HeapSort = 5");
+
+        //Escolhe o tipo de busca
+        System.out.println("Informe o tipo de ordenação desejada: ");
+        tbusca = entrada.nextInt();
+
         ordena.inicializaVetor(n);
         ordena.imprime();
-        
+
         System.out.println("\n+----------------------------+");
-        
-        //chama os diferentes metodos de ordenação
-//        bolha.organizaVetor(ordena.getVet());
-//        insection.organizaVetor(ordena.getVet());
-//        selection.organizaVetor(ordena.getVet());
-//        quickSort.organizaVetor(ordena.getVet());
-         heapSort.organizaVetor(ordena.getVet());
+
+        switch (tbusca) {
+            case 1:
+                Bubble bolha = new Bubble();
+                bolha.organizaVetor(ordena.getVet());
+                break;
+            case 2:
+                Selection selection = new Selection();
+                selection.organizaVetor(ordena.getVet());
+                break;
+            case 3:
+                Insection insection = new Insection();
+                insection.organizaVetor(ordena.getVet());
+                break;
+            case 4:
+                QuickSort quickSort = new QuickSort();
+                quickSort.organizaVetor(ordena.getVet());
+                break;
+            case 5:
+                HeapSort heapSort = new HeapSort();
+                heapSort.organizaVetor(ordena.getVet());
+                break;
+        }
         //imprime novamente o vetor organizado
         ordena.imprime();
     }
