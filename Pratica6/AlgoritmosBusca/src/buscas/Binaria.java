@@ -12,7 +12,7 @@ import java.util.Arrays;
  * @author wesley
  */
 public class Binaria implements ITBusca {
-
+    static int compara = 0;
     private static int retorno = 0;
 
     @Override
@@ -25,13 +25,14 @@ public class Binaria implements ITBusca {
         } else {
             System.out.println("Elemento encontrado na posição: " + retorno + " do vetor.");
         }
-
+        System.out.println("Número de comparações: " + compara);
     }
 
     public static int Busca_Binaria(int v[], int e) {
         int inicio = 0, fim = v.length - 1;
 
         while (inicio <= fim) {
+            compara++;
             int meio = (inicio + fim) / 2;
 
             if (v[meio] == e) {

@@ -10,7 +10,8 @@ package buscas;
  * @author wesley
  */
 public class SSentinela implements ITBusca {
-
+    static int compara = 0;
+    
     @Override
     public void busca(int[] v, int e) {
         int retorno = Busca_Sequencial(v, e);
@@ -20,12 +21,15 @@ public class SSentinela implements ITBusca {
         } else {
             System.out.println("Elemento encontrado na posição: " + retorno + " do vetor.");
         }
+        
+        System.out.println("Número de comparações: " + compara);
     }
 
     public int Busca_Sequencial(int v[], int e) {
         int [] vetor = new int[v.length + 1];
         
         for (int i = 0; i < vetor.length; i++) {
+            compara++;
             if (vetor[i] == e) {
                 return i;
             }else if(i == vetor.length){
