@@ -9,44 +9,52 @@ package tipos;
  *
  * @author wesley
  */
-public class HeapSort implements IOrganizador{
+public class HeapSort implements IOrganizador {
+
+    static int compara = 0;
+    static int troca = 0;
 
     public void organizaVetor(int[] vetor) {
         heapSort(vetor);
+        System.out.println("Número de comparações: " + compara);
+        System.out.println("Número de trocas: " + troca);
     }
 
     private void heapSort(int[] vetor) {
         buildMaxHeap(vetor);
         int n = vetor.length;
-        
-        for(int i = vetor.length - 1; i > 0; i--){
+
+        for (int i = vetor.length - 1; i > 0; i--) {
             swap(vetor, i, 0);
             maxHeapify(vetor, 0, --n);
         }
     }
 
     private void buildMaxHeap(int[] vetor) {
-        for(int i = vetor.length / 2 - 1; i >= 0; i--)
+        for (int i = vetor.length / 2 - 1; i >= 0; i--) {
             maxHeapify(vetor, i, vetor.length);
+            compara++;
+        }
     }
 
     private void maxHeapify(int[] vetor, int pos, int tvetor) {
         int max = 2 * pos + 1, righit = max + 1;
-        if (max < tvetor){
-            if(righit < tvetor && vetor[max] < vetor[righit]){
+        if (max < tvetor) {
+            if (righit < tvetor && vetor[max] < vetor[righit]) {
                 max = righit;
             }
-            
-            if (vetor[max] > vetor[pos]){
+
+            if (vetor[max] > vetor[pos]) {
                 swap(vetor, max, pos);
                 maxHeapify(vetor, max, tvetor);
             }
         }
     }
-    
+
     private void swap(int[] vetor, int j, int aposJ) {
         int aux = vetor[j];
         vetor[j] = vetor[aposJ];
         vetor[aposJ] = aux;
+        troca++;
     }
 }
